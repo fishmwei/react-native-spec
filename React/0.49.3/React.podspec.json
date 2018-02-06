@@ -61,6 +61,21 @@
       }
     },
     {
+      "name": "BatchedBridge",
+      "dependencies": {
+        "React/Core": [
+
+        ],
+        "React/cxxreact_legacy": [
+
+        ]
+      },
+      "source_files": [
+        "React/Base/RCTBatchedBridge.mm",
+        "React/Executors/*"
+      ]
+    },
+    {
       "name": "CxxBridge",
       "dependencies": {
         "Folly": [
@@ -91,6 +106,31 @@
         "React/DevSupport/*",
         "React/Inspector/*"
       ]
+    },
+    {
+      "name": "jschelpers_legacy",
+      "source_files": [
+        "ReactCommon/jschelpers/{JavaScriptCore,JSCWrapper,InspectorInterfaces}.{cpp,h}",
+        "ReactCommon/jschelpers/systemJSCWrapper.cpp"
+      ],
+      "private_header_files": "ReactCommon/jschelpers/{JavaScriptCore,JSCWrapper,InspectorInterfaces}.h",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"$(PODS_TARGET_SRCROOT)/ReactCommon\""
+      },
+      "frameworks": "JavaScriptCore"
+    },
+    {
+      "name": "cxxreact_legacy",
+      "dependencies": {
+        "React/jschelpers_legacy": [
+
+        ]
+      },
+      "source_files": "ReactCommon/cxxreact/{JSBundleType,oss-compat-util}.{cpp,h}",
+      "private_header_files": "ReactCommon/cxxreact/{JSBundleType,oss-compat-util}.h",
+      "pod_target_xcconfig": {
+        "HEADER_SEARCH_PATHS": "\"$(PODS_TARGET_SRCROOT)/ReactCommon\""
+      }
     },
     {
       "name": "jschelpers",
